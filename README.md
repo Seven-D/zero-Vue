@@ -94,4 +94,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 * package.json文件很重要，这里主要管理各依赖包及其版本。
   看dependencies段，这是我们用的全局依赖，可以把版本号前的^号去掉，以指定版本，以防后期更新后影响生产环境。
-
+```bash
+一、在main.js中引入组件
+    import 'bootstrap/dist/css/bootstrap.min.css' //全局引用bootstrap
+    import 'bootstrap/dist/js/bootstrap.min.js'
+    import ElementUI from 'element-ui'           //全局引用elementUI
+    import 'element-ui/lib/theme-chalk/index.css'
+    import axios from 'axios'
+    import VueAxios from 'vue-axios'
+    
+    Vue.use(ElementUI);
+    Vue.use(VueAxios,axios);
+    
+二、建立导航页
+    1、
+    
+```
