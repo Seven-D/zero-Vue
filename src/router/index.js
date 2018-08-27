@@ -5,6 +5,9 @@ import Page1 from '../components/Page1'
 import Page2 from '../components/Page2'
 import Page3 from '../components/Page3'
 import Page4 from '../components/Page4'
+import Header from '../components/Header'
+import NaviMenu from '../components/NaviMenu'
+import Breadcrumb from '../components/Breadcrumb'
 
 Vue.use(VueRouter);
 
@@ -12,8 +15,12 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
+            name: 'Home',
+            components:{
+                myHeader:Header,
+                myNaviMenu:NaviMenu,
+                myBreadcrumb:Breadcrumb
+            }
         },
         {
             path: '/Page1',

@@ -28,7 +28,7 @@
 
         computed: {
             search() {
-                return this.$store.state.student.studentQueryFlag;
+                //return this.$store.state.student.studentQueryFlag;
             }
         }
     }

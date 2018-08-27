@@ -80,7 +80,7 @@
 
         computed: {
             studentTypeList() {
-                return this.$store.state.navi.studentTypeList;
+                //return this.$store.state.navi.studentTypeList;
             }
         }
     }

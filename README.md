@@ -5,8 +5,18 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# install dependencies 依赖安装
 npm install
+#淘宝镜像安装(临时）
+npm --registry https://registry.npm.taobao.org install express
+
+#淘宝镜像永久配置
+npm config set registry https://registry.npm.taobao.org
+配置后可通过下面方式来验证是否成功 
+npm config get registry
+或 
+npm info express
+之后可以用npm install进行快速安装
 
 # serve with hot reload at localhost:8080
 npm run dev

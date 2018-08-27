@@ -1,95 +1,17 @@
 <template>
     <div style="background-color: #f8f8f8;min-height:800px">
-        <div style="width:100%;background-color: #335577; overflow: hidden">
-            <span class="demonstration" style="float:left;padding-top:10px;color:white;margin-left:1%">
-                网站首页
-            </span>
-
-            <span class="demonstration" style="float:left;padding:5px;color:white;margin-left:2%;width:15%">
-                <el-input
-                    placeholder="请输入"
-                    icon="search"
-                    v-model="searchCriteria"
-                    :on-icon-click="handleIconClick">
-                </el-input>
-            </span>
-
-            <span class="demonstration" style="float:right;padding-top:10px;margin-right:2%">
-                <el-dropdown trigger="click">
-                  <span class="el-dropdown-link" style="color:white">
-                    admin<i class="el-icon-caret-bottom el-icon--right"></i>
-                  </span>
-                  <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>个人信息</el-dropdown-item>
-                    <el-dropdown-item>退出登录</el-dropdown-item>
-                  </el-dropdown-menu>
-                </el-dropdown>
-            </span>
-        </div>
-
+        <router-view name="myHeader"></router-view>
         <div style="margin-top:5px">
             <el-row :gutter="20">
-                <!--设计导航菜单，左侧边--->
-                <!--   <el-col :span="3"> 这个写法会在窗口变小的时候变形,用下面的写法-->
-                <el-col :xs="4" :sm="4" :md="4" :lg="4">
-                    <el-menu
-                        default-active="1"
-                        class="el-menu-vertical-demo"
-                        style="min-height: 800px"
-                        @open="handleOpen"
-                        @close="handleClose"
-                        @select="handleSelect"
-                        background-color="#335577"
-                        text-color="#fff"
-                        active-text-color="#ffd04b">
-                        <el-submenu index="1">
-                            <template slot="title">
-                                <i class="el-icon-location"></i>
-                                <span>导航一</span>
-                            </template>
-                            <el-menu-item-group>
-                                <template slot="title">分组一</template>
-                                <el-menu-item index="1-1">选项1</el-menu-item>
-                                <el-menu-item index="1-2">选项2</el-menu-item>
-                            </el-menu-item-group>
-                            <el-menu-item-group title="分组2">
-                                <el-menu-item index="1-3">选项3</el-menu-item>
-                            </el-menu-item-group>
-                            <el-submenu index="1-4">
-                                <template slot="title">选项4</template>
-                                <el-menu-item index="1-4-1">选项1</el-menu-item>
-                            </el-submenu>
-                        </el-submenu>
-                        <el-menu-item index="2">
-                            <i class="el-icon-menu"></i>
-                            <span slot="title">导航二</span>
-                        </el-menu-item>
-                        <el-menu-item index="3" disabled>
-                            <i class="el-icon-document"></i>
-                            <span slot="title">导航三</span>
-                        </el-menu-item>
-                        <el-menu-item index="4">
-                            <i class="el-icon-setting"></i>
-                            <span slot="title">导航四</span>
-                        </el-menu-item>
-                    </el-menu>
+                <el-col :span="4">
+                    <router-view name="myNaviMenu"></router-view>
                 </el-col>
-
                 <el-col :xs="20" :sm="20" :md="20" :lg="20">
-                    <!--这是一个面包屑-->
-                    <div>
-                        <div>
-                            <el-breadcrumb separator-class="el-icon-arrow-right">
-                                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                                <el-breadcrumb-item v-for="item in breadcrumbItems">{{item}}</el-breadcrumb-item>
-                            </el-breadcrumb>
-                        </div>
-                    </div>
-                    <!--这里路由视图输出位置-->
-                    <div style="margin-top:20px">
-                        <router-view></router-view>
-                    </div>
+                    <router-view name="myBreadcrumb"></router-view>
                 </el-col>
+                <div>
+                    <router-view/>
+                </div>
             </el-row>
         </div>
     </div>
@@ -99,43 +21,7 @@
     export default {
         name: 'App',
         data() {
-            return {
-                searchCriteria: '',
-                breadcrumbItems: [''],
-            }
-        },
-
-        methods: {
-            handleIconClick(ev) {
-                console.log(ev);
-            },
-            handleSelect(key, keyPath) {
-                switch (key) {
-                    case '1-1':
-                        this.$router.push('/Page1');
-                        this.breadcrumbItems = ['导航一'];
-                        break;
-                    case '1-2':
-                        this.$router.push('/Page2');
-                        this.breadcrumbItems = ['导航二'];
-                        break;
-                    case '1-3':
-                        this.$router.push('/Page3');
-                        this.breadcrumbItems = ['导航三'];
-                        break;
-                    case '1-4-1':
-                        this.$router.push('/Page4');
-                        this.breadcrumbItems = ['导航四'];
-                        break;
-                }
-            },
-            handleOpen(key, keyPath) {
-                console.log(key, keyPath);
-            },
-            handleClose(key, keyPath) {
-                console.log(key, keyPath);
-            }
-
+            return {}
         }
     }
 </script>
